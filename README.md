@@ -1,4 +1,4 @@
-npm install
-react-native upgrade
-react-native run-android
-react-native run-ios
+1. npm install
+2. react-native upgrade
+3. react-native run-android
+4. react-native run-ios
