@@ -29,9 +29,12 @@ function urlForQueryAndPage(key, value, pageNumber) {
     return 'https://api.nestoria.co.uk/api?' + querystring;
 }
 
-
 type Props = {};
 export default class SearchPage extends Component<Props> {
+    static navigationOptions = {
+        title: 'Property Finder',
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -41,15 +44,8 @@ export default class SearchPage extends Component<Props> {
         };
     }
 
-
-    static navigationOptions = {
-        title: 'Property Finder',
-    };
-
     _onSearchTextChanged = (event) => {
-        console.log('_onSearchTextChanged');
         this.setState({ searchString: event.nativeEvent.text });
-        console.log('Current: ' + this.state.searchString + ', Next: ' + event.nativeEvent.text);
     };
 
     _executeQuery = (query) => {
@@ -63,7 +59,6 @@ export default class SearchPage extends Component<Props> {
                     isLoading: false,
                     message: 'Something bad happened ' + error
                 }));
-
     };
 
     _onSearchPressed = () => {
@@ -71,17 +66,15 @@ export default class SearchPage extends Component<Props> {
         this._executeQuery(query);
     };
 
-
     _handleResponse = (response) => {
         this.setState({ isLoading: false, message: '' });
         if (response.application_response_code.substr(0, 1) === '1') {
             this.props.navigation.navigate(
-                'Results', {listings: response.listings});              
+                'Results', { listings: response.listings });
         } else {
             this.setState({ message: 'Location not recognized; please try again.' });
         }
     };
-
 
     render() {
         const spinner = this.state.isLoading ?
@@ -90,13 +83,11 @@ export default class SearchPage extends Component<Props> {
         return (
             <View style={styles.container}>
                 <Text style={styles.description}>
-                    Search for Houses to buy!
-                </Text>
-
+                    Search for houses to buy!
+        </Text>
                 <Text style={styles.description}>
                     Search by place-name or postcode.
-                </Text>
-
+        </Text>
                 <View style={styles.flowRight}>
                     <TextInput
                         underlineColorAndroid={'transparent'}
@@ -104,8 +95,6 @@ export default class SearchPage extends Component<Props> {
                         value={this.state.searchString}
                         onChange={this._onSearchTextChanged}
                         placeholder='Search via name or postcode' />
-
-
                     <Button
                         onPress={this._onSearchPressed}
                         color='#48BBEC'
@@ -119,7 +108,6 @@ export default class SearchPage extends Component<Props> {
         );
     }
 }
-
 
 const styles = StyleSheet.create({
     description: {

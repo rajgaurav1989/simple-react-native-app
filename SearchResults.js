@@ -10,7 +10,6 @@ import {
     Text,
 } from 'react-native';
 
-
 class ListItem extends React.PureComponent {
     _onPress = () => {
         this.props.onPressItem(this.props.index);
@@ -39,8 +38,6 @@ class ListItem extends React.PureComponent {
     }
 }
 
-
-
 type Props = {};
 export default class SearchResults extends Component<Props> {
     static navigationOptions = {
@@ -58,9 +55,9 @@ export default class SearchResults extends Component<Props> {
     );
 
     _onPressItem = (index) => {
-        console.log("Pressed row: " + index);
-    };
-
+        const { navigate, state } = this.props.navigation;
+        navigate('Property', { property: state.params.listings[index] });
+    }
 
     render() {
         const { params } = this.props.navigation.state;
@@ -73,7 +70,6 @@ export default class SearchResults extends Component<Props> {
         );
     }
 }
-
 
 const styles = StyleSheet.create({
     thumb: {
