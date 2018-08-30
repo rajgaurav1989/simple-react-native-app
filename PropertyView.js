@@ -9,8 +9,8 @@ import {
 	Text
 } from 'react-native';
 
-type Props = {};
-export default class PropertyView extends Component<Props> {
+// type Props = {};
+export default class PropertyView extends Component {
 	static navigationOptions = {
 		title: 'Property',
 	};

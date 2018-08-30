@@ -29,8 +29,8 @@ function urlForQueryAndPage(key, value, pageNumber) {
     return 'https://api.nestoria.co.uk/api?' + querystring;
 }
 
-type Props = {};
-export default class SearchPage extends Component<Props> {
+// type Props = {};
+export default class SearchPage extends Component {
     static navigationOptions = {
         title: 'Property Finder',
     };
