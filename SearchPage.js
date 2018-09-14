@@ -100,6 +100,11 @@ export default class SearchPage extends Component {
                         color='#48BBEC'
                         title='Go'
                     />
+                    <Button
+                        onPress={() => { this.props.navigation.openDrawer() } }
+                        color='#48BBEC'
+                        title='Check'
+                    />
                 </View>
                 <Image source={require('./Resources/house.png')} style={styles.image} />
                 {spinner}
