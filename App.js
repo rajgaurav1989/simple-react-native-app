@@ -9,15 +9,21 @@ import {
 import SearchPage from './SearchPage';
 import SearchResults from './SearchResults';
 import PropertyView from './PropertyView';
+import Screen1 from './screen1' ;
+import Screen2 from './screen2' ;
 
 const StackNav = createStackNavigator({
-	Home: { screen: SearchPage },
-	Results: { screen: SearchResults },
-	Property: { screen: PropertyView },
+	Home: { screen : SearchPage },
+	Results: { screen : SearchResults },
+	Property: { screen : PropertyView },
+	Screen1 : { screen : Screen1  },
+	Screen2 : { screen : Screen2 }
 });
 
 const App = createDrawerNavigator({
-	Drawer : { screen : StackNav }
+	Screen1 : { screen : Screen1 } ,
+	Screen2 : { screen : Screen2 } ,
+	Drawer : { screen : StackNav } ,
 })
 
 export default App;

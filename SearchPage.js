@@ -100,12 +100,23 @@ export default class SearchPage extends Component {
                         color='#48BBEC'
                         title='Go'
                     />
-                    <Button
+                    
+                </View>
+                <Button
                         onPress={() => { this.props.navigation.openDrawer() } }
                         color='#48BBEC'
-                        title='Check'
+                        title='Drawer Open'
                     />
-                </View>
+                <Button
+                        onPress={() => { this.props.navigation.navigate('Screen1') } }
+                        color='#48BBEC'
+                        title='Go To Screen1'
+                    />
+                <Button
+                        onPress={() => { this.props.navigation.navigate('Screen2') } }
+                        color='#48BBEC'
+                        title='Go To Screen2'
+                    />
                 <Image source={require('./Resources/house.png')} style={styles.image} />
                 {spinner}
                 <Text style={styles.description}>{this.state.message}</Text>
